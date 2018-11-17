@@ -1,0 +1,26 @@
+cc_library(
+	name = "zlib",
+	srcs = glob(["*.c"]),
+	hdrs = glob(["*.h"]),
+	# Use -Dverbose=-1 to turn off zlib's trace logging. (#3280)
+	copts = ["-w", "-Dverbose=-1"],
+	visibility = ["//visibility:public"],
+)
+
+cc_test(
+	name = "zlib_test_example",
+	srcs = ["test/example.c"],
+	deps = [":zlib"],
+)
+
+cc_test(
+	name = "zlib_test_infcover",
+	srcs = ["test/example.c"],
+	deps = [":zlib"],
+)
+
+cc_test(
+	name = "zlib_test_minigzip",
+	srcs = ["test/example.c"],
+	deps = [":zlib"],
+)

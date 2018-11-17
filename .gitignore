@@ -24,3 +24,7 @@
 /configure.log
 
 .DS_Store
+
+# Added by bazelregistry
+.vscode
+/bazel-*
